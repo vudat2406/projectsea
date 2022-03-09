@@ -117,7 +117,6 @@ export default function ContactDetail( { navigation, route }) {
         />
         <Text style={{width:'25%',fontSize:14,marginTop:2}}>LOCK ACCOUNT</Text>
       </View>
-      
       </ScrollView>
       <View style={{
           position:"absolute",
