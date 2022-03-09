@@ -1,11 +1,19 @@
-import React from 'react'
-import { Button, View, Text ,FlatList, StyleSheet,TouchableOpacity,Image,TextInput,ScrollView} from 'react-native';
+import React,{useState} from 'react'
+import { Button, View, Text ,FlatList,Switch, StyleSheet,TouchableOpacity,Image,TextInput,ScrollView} from 'react-native';
 export default function ContactDetail( { navigation, route }) {
   const { data } = route.params;
+  const [isEnabled1, setIsEnabled1] = useState(false);
+  const toggleSwitch1 = () => setIsEnabled1(previousState => !previousState);
+  const [isEnabled2, setIsEnabled2] = useState(false);
+  const toggleSwitch2 = () => setIsEnabled2(previousState => !previousState);
+  const [isEnabled3, setIsEnabled3] = useState(false);
+  const toggleSwitch3 = () => setIsEnabled3(previousState => !previousState);
+  const [isEnabled4, setIsEnabled4] = useState(false);
+  const toggleSwitch4 = () => setIsEnabled4(previousState => !previousState);
   return (
     
     <View style={{ flex:1}}>
-      <ScrollView style={{ flex:1}}>
+      <ScrollView style={{ flex:1,marginBottom:90}  }>
       <View style={{flexDirection:'row'}} >
         <Text style={{color:'#85132B',fontSize:20,fontWeight:"bold",fontFamily:'Raleway',textDecorationLine:'underline',margin:16}}>Contact Infomation</Text>
         <TouchableOpacity 
@@ -25,7 +33,7 @@ export default function ContactDetail( { navigation, route }) {
         <Text style={{fontWeight:'bold',bottom:45,fontSize:17,left:7}}>{data.name} <Image source={require('../../assets/icon/80ppi/Asses1.png')}/></Text>
         <Text style={{fontSize:14,bottom:35,left:7}}> On Sport Company <Image source={require('../../assets/icon/80ppi/Asses1.png')}/></Text>
       </View>
-      <View style={{marginLeft:16,marginBottom:16,marginRight:16,height:290,backgroundColor:'rgba(192,209,125,0.2)',borderRadius:5,alignItems:'center'}}>
+      <View style={{marginLeft:16,marginBottom:16,marginRight:16,backgroundColor:'rgba(192,209,125,0.2)',borderRadius:5,alignItems:'center'}}>
         <View style={{width:'100%',margin:16}}>
           <Text style={{marginLeft:16,marginBottom:8}}>Phone Number:</Text>
           <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,marginBottom:8,color:'#B1B1B1'}}> Home Phone</TextInput>
@@ -35,9 +43,81 @@ export default function ContactDetail( { navigation, route }) {
         <View style={{width:'100%',marginLeft:16,marginRight:16}}>
           <Text style={{marginLeft:16,marginBottom:8}}>Email Address:</Text>
           <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,marginBottom:8,color:'#B1B1B1'}}> Primary Email</TextInput>
-          <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,marginBottom:8,color:'#B1B1B1'}}> Alternative Email</TextInput>
+          <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,marginBottom:16,color:'#B1B1B1'}}> Alternative Email</TextInput>
         </View>
       </View>
+      <View  style={{marginLeft:16,marginBottom:16,marginRight:16,backgroundColor:'rgba(192,209,125,0.2)',borderRadius:5,alignItems:'center'}}>
+        <View style={{width:'100%',margin:16}}>
+          <Text style={{marginLeft:16,marginBottom:8}}>Address:</Text>
+          <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,marginBottom:8,color:'#B1B1B1'}}> Address Line 1</TextInput>
+          <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,marginBottom:8,color:'#B1B1B1'}}> Address Line 2</TextInput>
+          <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,marginBottom:8,color:'#B1B1B1'}}> Street</TextInput>
+          <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,marginBottom:8,color:'#B1B1B1'}}> Ward</TextInput>
+          <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,marginBottom:8,color:'#B1B1B1'}}> City/ Region</TextInput>
+          <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,marginBottom:8,color:'#B1B1B1'}}> Country</TextInput>
+          <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,marginBottom:0,color:'#B1B1B1'}}> Postal Code</TextInput>
+        </View>
+      </View>
+      <View style={{marginLeft:16,marginBottom:16,marginRight:16,backgroundColor:'rgba(192,209,125,0.2)',borderRadius:5,alignItems:'center'}}>
+        <View style={{width:'100%',margin:16}}>
+          <Text style={{marginLeft:16,marginBottom:8}}>Tax Region:</Text>
+          <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,color:'#B1B1B1'}}> Tax Region</TextInput>
+        </View>
+        <View style={{width:'100%',marginLeft:16,marginRight:16,marginBottom:16}}>
+          <Text style={{marginLeft:16,marginBottom:8}}>Tax Refference:</Text>
+          <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,color:'#B1B1B1'}}> Tax Refference</TextInput>
+        </View>
+        <View style={{width:'100%',marginLeft:16,marginRight:16,marginBottom:16}}>
+          <Text style={{marginLeft:16,marginBottom:8}}>Invoice Terms:</Text>
+          <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,color:'#B1B1B1'}}> Invoice Terms</TextInput>
+        </View>
+        <View style={{width:'100%',marginLeft:16,marginRight:16,marginBottom:16}}>
+          <Text style={{marginLeft:16,marginBottom:8}}>Invoice Note:</Text>
+          <TextInput style={{backgroundColor:'white',height:35,borderRadius:5,marginLeft:16,marginRight:16,color:'#B1B1B1'}}> Invoice Note</TextInput>
+        </View>
+      </View>
+      <View style={{marginLeft:16,marginBottom:16,marginRight:16,backgroundColor:'rgba(192,209,125,0.2)',borderRadius:5,alignItems:'center'}} >
+        <View style={{width:'100%',margin:16}}>
+          <Text style={{marginLeft:16,marginBottom:8}}>Searcg Tags:</Text>
+          <TextInput
+          style={{backgroundColor:'white',height:70,borderRadius:5,marginLeft:16,marginRight:16,color:'#B1B1B1'}}> e.g. Company Name, Trade Service, Product Name</TextInput>
+        </View>
+      </View>
+      <View style={{flexDirection:'row',flexWrap:'wrap',marginLeft:-25,marginBottom:32}}>
+        <Switch
+          trackColor={{ false: "#B1B1B1", true: "#B1B1B1" }}
+          thumbColor={isEnabled1 ? "#C0D17D" : "#515054"}
+          onValueChange={toggleSwitch1}
+          value={isEnabled1}
+          style={{width:'20%'}}
+        />
+        <Text style={{width:'25%',fontSize:14,marginTop:2}}>CUSTOMER</Text>
+        <Switch
+          trackColor={{ false: "#B1B1B1", true: "#B1B1B1" }}
+          thumbColor={isEnabled2 ? "#C0D17D" : "#515054"}
+          onValueChange={toggleSwitch2}
+          value={isEnabled2}
+          style={{width:'20%'}}
+        />
+        <Text style={{width:'25%',fontSize:14,marginTop:2}}>ACTIVE</Text>
+        <Switch
+          trackColor={{ false: "#B1B1B1", true: "#B1B1B1" }}
+          thumbColor={isEnabled3 ? "#C0D17D" : "#515054"}
+          onValueChange={toggleSwitch3}
+          value={isEnabled3}
+          style={{width:'20%'}}
+        />
+        <Text style={{width:'25%',fontSize:14,marginTop:2}}>SUPPLIER</Text>
+        <Switch
+          trackColor={{ false: "#B1B1B1", true: "#B1B1B1" }}
+          thumbColor={isEnabled4 ? "#C0D17D" : "#515054"}
+          onValueChange={toggleSwitch4}
+          value={isEnabled4}
+          style={{width:'20%'}}
+        />
+        <Text style={{width:'25%',fontSize:14,marginTop:2}}>LOCK ACCOUNT</Text>
+      </View>
+      
       </ScrollView>
       <View style={{
           position:"absolute",
